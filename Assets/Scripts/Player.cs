@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             isSpaceKeyPressed = true;
         }
