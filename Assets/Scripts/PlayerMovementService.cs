@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementManager : MonoBehaviour
+public class PlayerMovementService : MonoBehaviour
 {
     [SerializeField, Range(1f, 10f)] float moveSpeed = 3f;
 
-    void ManageMovement()
+    void ManagePlayerMovement()
     {
         float xPosition = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         transform.Translate(new Vector2(xPosition, 0));
@@ -14,6 +14,6 @@ public class MovementManager : MonoBehaviour
 
     void Update()
     {
-        ManageMovement();
+        ManagePlayerMovement();
     }
 }
