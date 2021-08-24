@@ -55,7 +55,7 @@ public class JumpManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(isSpaceKeyPressed == true)
+        if(isSpaceKeyPressed)
         {
             DisplayVelocity();
             ApplyVelocityAlteration();
