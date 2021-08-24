@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementManager : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 1f;
+    [SerializeField, Range(1f, 10f)] float moveSpeed = 3f;
 
     void Update()
     {
