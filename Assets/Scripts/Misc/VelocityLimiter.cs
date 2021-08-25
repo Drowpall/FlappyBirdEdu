@@ -5,6 +5,7 @@ public class VelocityLimiter : MonoBehaviour
     [SerializeField] float maxVelocity = 10f;
 
     private new Rigidbody2D rigidbody;
+
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();

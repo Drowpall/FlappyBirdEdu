@@ -13,6 +13,14 @@ public class PlayerJump : MonoBehaviour
        rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+    }
+
     void Jump()
     {
         if (rigidbody.velocity.y < 0)
@@ -30,12 +38,5 @@ public class PlayerJump : MonoBehaviour
         }
 
         rigidbody.velocity += new Vector2(0, addVelocity);
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Jump();
-        }
     }
 }
