@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerVelocityLimiter : MonoBehaviour
+public class VelocityLimiter : MonoBehaviour
 {
     [SerializeField] float maxVelocity = 10f;
 
@@ -11,20 +9,17 @@ public class PlayerVelocityLimiter : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
     }
-    void LimitMaxVelocity()
+
+    void Update()
     {
         if (rigidbody.velocity.y > 0 && rigidbody.velocity.y > maxVelocity)
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, maxVelocity);
         }
-        else if (rigidbody.velocity.y < 0 && rigidbody.velocity.y < -maxVelocity)
+        else 
+        if (rigidbody.velocity.y < 0 && rigidbody.velocity.y < -maxVelocity)
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, -maxVelocity);
         }
-    }
-
-    void Update()
-    {
-        LimitMaxVelocity();
     }
 }
