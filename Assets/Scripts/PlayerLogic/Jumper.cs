@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using DG.Tweening;
+using UnityEngine;
 
-public class PlayerJump : MonoBehaviour
-{
+public class Jumper : MonoBehaviour {
+    public event Action Jumped;
+    
     [SerializeField, Range(1f, 10f)] float jmpForce = 6.5f;
 
     float addVelocity;
@@ -37,6 +40,9 @@ public class PlayerJump : MonoBehaviour
             addVelocity = jmpForce / rigidbody.velocity.y;
         }
 
-        rigidbody.velocity += new Vector2(0, addVelocity);
+        DOTween.To(() => rigidbody.velocity.y, (float v) => rigidbody.velocity = new Vector2(0, v),
+            rigidbody.velocity.y + addVelocity, 0.1f).SetEase(Ease.InCubic);
+        // rigidbody.velocity += new Vector2(0, addVelocity);
+        Jumped?.Invoke();
     }
 }
