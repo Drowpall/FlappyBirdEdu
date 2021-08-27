@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField, Range(1f, 10f)] float SpawnCooldown = 2f;
-    float _spawnCoolDown;
+    [SerializeField, Range(1f, 10f)] float spawnCooldown = 2f;
+    float _spawnCooldown;
 
     public GameObject[] obstaclePrefabs;
 
     private void Start()
     {
-        _spawnCoolDown = SpawnCooldown;
+        _spawnCooldown = spawnCooldown;
     }
 
     void Update()
     {
-        _spawnCoolDown -= Time.deltaTime;
+        _spawnCooldown -= Time.deltaTime;
 
-        if (_spawnCoolDown < 0)
+        if (_spawnCooldown < 0)
         {
             Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length - 1)]);
-            _spawnCoolDown = SpawnCooldown;
+            _spawnCooldown = spawnCooldown;
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class PlayerJump : MonoBehaviour
+public class Jumper : MonoBehaviour
 {
-    [SerializeField, Range(1f, 10f)] float jmpForce = 6.5f;
+    [SerializeField, Range(1f, 10f)] float jumpForce = 6.5f;
 
-    float addVelocity;
+    float additionalVelocity;
     
     private new Rigidbody2D rigidbody;
 
@@ -25,18 +25,18 @@ public class PlayerJump : MonoBehaviour
     {
         if (rigidbody.velocity.y < 0)
         {
-            addVelocity = -rigidbody.velocity.y + jmpForce;
+            additionalVelocity = -rigidbody.velocity.y + jumpForce;
         }
         else
         if (rigidbody.velocity.y < 1)
         {
-            addVelocity = jmpForce;
+            additionalVelocity = jumpForce;
         }
         else
         {
-            addVelocity = jmpForce / rigidbody.velocity.y;
+            additionalVelocity = jumpForce / rigidbody.velocity.y;
         }
 
-        rigidbody.velocity += new Vector2(0, addVelocity);
+        rigidbody.velocity += new Vector2(0, additionalVelocity);
     }
 }
