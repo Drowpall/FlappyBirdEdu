@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VelocityLimiter : MonoBehaviour
+public class PlayerVelocityLimiter : MonoBehaviour
 {
     [SerializeField] float maxVelocity = 10f;
 

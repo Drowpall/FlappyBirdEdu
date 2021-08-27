@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpManager : MonoBehaviour
+public class PlayerJumpService : MonoBehaviour
 {
     [SerializeField, Range(1f, 10f)] float negativeVelocityAlter = 6f;
     [SerializeField, Range(1f, 10f)] float zeroVelocityAlter = 6f;
