@@ -5,7 +5,7 @@ public class Spawner : MonoBehaviour
     [SerializeField, Range(1f, 10f)] float spawnCooldown = 2f;
     float _spawnCooldown;
 
-    public GameObject[] obstaclePrefabs;
+    public GameObject obstaclePrefab;
 
     private void Start()
     {
@@ -18,8 +18,16 @@ public class Spawner : MonoBehaviour
 
         if (_spawnCooldown < 0)
         {
-            Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length - 1)]);
+            GameObject obstacle = Instantiate(obstaclePrefab);
+            RandomizePosition(obstacle.GetComponent<Obstacle>());
             _spawnCooldown = spawnCooldown;
         }
+    }
+
+    void RandomizePosition(Obstacle ob)
+    {
+        ob.DistanceY = Random.Range(2.4f, 4f);
+        ob.DistanceX = Random.Range(-3f, 3f);
+        ob.CenterHeight = Random.Range(-2f, 2f);
     }
 }

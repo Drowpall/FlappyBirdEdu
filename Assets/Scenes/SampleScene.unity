@@ -280,13 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490ae8ad0d9c75e4788602e002664bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnCooldown: 2
-  obstaclePrefabs:
-  - {fileID: 7174278017969279355, guid: 25c7802653a2a1447ae836c2fa7b4546, type: 3}
-  - {fileID: 6350967822756541562, guid: 7e4eb48cc146a264da4ae86cf651c972, type: 3}
-  - {fileID: 5087252699421460711, guid: 357c10c21d696d3408dcec34a3fe7f95, type: 3}
-  - {fileID: 5972765238515513146, guid: d15c6a66409f8704b8238c1d976e079f, type: 3}
-  - {fileID: 6641628104837070889, guid: b653c7af2301d834b91ad1e2f99b02a0, type: 3}
+  spawnCooldown: 2
+  obstaclePrefab: {fileID: 6350967822756541562, guid: 7e4eb48cc146a264da4ae86cf651c972, type: 3}
 --- !u!1 &713030556
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,9 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ab9efd6e4031045a333c18d4bd6fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jmpForce: 6.5
-  addVelocity: 0
-  rigidbody: {fileID: 0}
+  jumpForce: 6.5
 --- !u!114 &861634770
 MonoBehaviour:
   m_ObjectHideFlags: 0
