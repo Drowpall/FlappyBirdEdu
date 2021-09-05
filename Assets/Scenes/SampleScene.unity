@@ -281,6 +281,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnCooldown: 2
+  distanceXRange: {x: -3, y: 3}
+  distanceYRange: {x: 2.4, y: 4}
+  centerHeightRange: {x: -2, y: 2}
   obstaclePrefab: {fileID: 6350967822756541562, guid: 7e4eb48cc146a264da4ae86cf651c972, type: 3}
 --- !u!1 &713030556
 GameObject:

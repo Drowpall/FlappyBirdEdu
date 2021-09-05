@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField, Range(1f, 10f)] float spawnCooldown = 2f;
+    [SerializeField] float spawnCooldown;       //(2f)
+
+    [SerializeField] Vector2 distanceXRange;    //(-3f,  3f);
+    [SerializeField] Vector2 distanceYRange;    //(2.4f, 4f);
+    [SerializeField] Vector2 centerHeightRange; //(-2f,  2f);
+
     float _spawnCooldown;
 
     public GameObject obstaclePrefab;
@@ -26,8 +31,9 @@ public class Spawner : MonoBehaviour
 
     void RandomizePosition(Obstacle ob)
     {
-        ob.DistanceY = Random.Range(2.4f, 4f);
-        ob.DistanceX = Random.Range(-3f, 3f);
-        ob.CenterHeight = Random.Range(-2f, 2f);
+        var obstacleCoordinates = new Vector2(Random.Range(distanceXRange.x, distanceXRange.y), Random.Range(distanceYRange.x, distanceYRange.y));
+        var centerPointHeight = Random.Range(centerHeightRange.x, centerHeightRange.y);
+
+        ob.SetupObstaclePositions(obstacleCoordinates, centerPointHeight);
     }
 }
