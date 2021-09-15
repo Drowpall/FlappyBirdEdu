@@ -15,7 +15,7 @@ public class Obstacle : MonoBehaviour {
     
     public void SetupObstaclePositions(Vector2 distanceBetweenObstacles, float centerHeight)
     {
-        topObstacle.transform.position += new Vector3(distanceBetweenObstacles.x / 2, centerHeight + distanceBetweenObstacles.y / 2, 0f);
-        bottomObstacle.transform.position += new Vector3(-distanceBetweenObstacles.x / 2, centerHeight - distanceBetweenObstacles.y / 2, 0f);
+        topObstacle.transform.position += new Vector3(distanceBetweenObstacles.x / 2 + 10f, centerHeight + distanceBetweenObstacles.y / 2, 0f);
+        bottomObstacle.transform.position += new Vector3(-distanceBetweenObstacles.x / 2 + 10f, centerHeight - distanceBetweenObstacles.y / 2, 0f);
     }    
 }
