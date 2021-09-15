@@ -1,3 +1,4 @@
+using PlayerLogic.PlayerMovement;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -10,7 +11,7 @@ public class Spawner : MonoBehaviour
 
     float _spawnCooldown;
 
-    public GameObject obstaclePrefab;
+    public Obstacle obstaclePrefab;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class Spawner : MonoBehaviour
 
         if (_spawnCooldown < 0)
         {
-            GameObject obstacle = Instantiate(obstaclePrefab);
+            var obstacle = Instantiate(obstaclePrefab);
             RandomizePosition(obstacle.GetComponent<Obstacle>());
             _spawnCooldown = spawnCooldown;
         }
