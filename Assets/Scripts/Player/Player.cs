@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-namespace PlayerLogic.PlayerMovement {
     public class Player : MonoBehaviour {
         public int Score { get; private set; }
         public event Action Died;
@@ -19,4 +18,3 @@ namespace PlayerLogic.PlayerMovement {
             Score += 1;
         }
     }
-}

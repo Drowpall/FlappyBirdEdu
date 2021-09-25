@@ -1,4 +1,3 @@
-using PlayerLogic.PlayerMovement;
 using System;
 using UnityEngine;
 
@@ -28,6 +27,5 @@ public class Scorer : MonoBehaviour
     void OnPlayerScored()
     {
         player.IncrementScore();
-        Debug.Log($"New score: {player.Score}");
     }
 }

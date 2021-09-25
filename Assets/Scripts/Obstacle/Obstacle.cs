@@ -1,5 +1,4 @@
 using System;
-using PlayerLogic.PlayerMovement;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour {
