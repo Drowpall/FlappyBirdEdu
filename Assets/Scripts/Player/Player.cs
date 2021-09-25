@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace PlayerLogic.PlayerMovement {
     public class Player : MonoBehaviour {
+        public int Score { get; private set; }
         public event Action Died;
         
         void OnCollisionEnter2D(Collision2D other) {
@@ -11,6 +12,11 @@ namespace PlayerLogic.PlayerMovement {
                 script.enabled = false;
             }
             Died?.Invoke();
+        }
+
+        public void IncrementScore()
+        {
+            Score += 1;
         }
     }
 }

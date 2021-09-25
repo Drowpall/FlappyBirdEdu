@@ -7,6 +7,7 @@ public class Obstacle : MonoBehaviour {
 
     [SerializeField] GameObject topObstacle;
     [SerializeField] GameObject bottomObstacle;
+    [SerializeField] GameObject scoreTrigger;
 
     void Update()
     {
@@ -17,5 +18,6 @@ public class Obstacle : MonoBehaviour {
     {
         topObstacle.transform.position += new Vector3(distanceBetweenObstacles.x / 2 + 10f, centerHeight + distanceBetweenObstacles.y / 2, 0f);
         bottomObstacle.transform.position += new Vector3(-distanceBetweenObstacles.x / 2 + 10f, centerHeight - distanceBetweenObstacles.y / 2, 0f);
-    }    
+        scoreTrigger.transform.position += new Vector3(10f, 0f, 0f);
+    }
 }
