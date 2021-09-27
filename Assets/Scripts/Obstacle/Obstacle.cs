@@ -4,6 +4,8 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour {
     [SerializeField, Range(1f, 10f)] float moveSpeed = 3f;
 
+    [SerializeField] float horizontalOffset = 13f;
+
     [SerializeField] GameObject topObstacle;
     [SerializeField] GameObject bottomObstacle;
     [SerializeField] GameObject scoreTrigger;
@@ -15,8 +17,8 @@ public class Obstacle : MonoBehaviour {
     
     public void SetupObstaclePositions(Vector2 distanceBetweenObstacles, float centerHeight)
     {
-        topObstacle.transform.position += new Vector3(distanceBetweenObstacles.x / 2 + 10f, centerHeight + distanceBetweenObstacles.y / 2, 0f);
-        bottomObstacle.transform.position += new Vector3(-distanceBetweenObstacles.x / 2 + 10f, centerHeight - distanceBetweenObstacles.y / 2, 0f);
-        scoreTrigger.transform.position += new Vector3(10f, 0f, 0f);
+        topObstacle.transform.position += new Vector3(distanceBetweenObstacles.x / 2 + horizontalOffset, centerHeight + distanceBetweenObstacles.y / 2, 0f);
+        bottomObstacle.transform.position += new Vector3(-distanceBetweenObstacles.x / 2 + horizontalOffset, centerHeight - distanceBetweenObstacles.y / 2, 0f);
+        scoreTrigger.transform.position += new Vector3(horizontalOffset, 0f, 0f);
     }
 }
