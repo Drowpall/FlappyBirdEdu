@@ -10,7 +10,6 @@ public class UIController : MonoBehaviour
     [SerializeField] Text score;
     [SerializeField] TMP_Text gameOver;
     [SerializeField] Player player;
-    [SerializeField] Button restartButton;
 
     void Awake()
     {

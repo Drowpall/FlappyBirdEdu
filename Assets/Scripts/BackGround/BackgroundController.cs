@@ -9,7 +9,6 @@ public class BackgroundController : MonoBehaviour
 
     [SerializeField] public GameObject backgroundImageLeft;
     [SerializeField] public GameObject backgroundImageRight;
-    private object one;
 
     public event Action BackgroundImageTouched;
     private void Start()
@@ -19,9 +18,8 @@ public class BackgroundController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject != backgroundImageLeft && collision.gameObject != backgroundImageRight)
+        if (collision.gameObject.tag != "Background")
         {
-            Debug.LogError("This was supposed to be background\n");
             return;
         }
         backgroundImage = collision.gameObject;
