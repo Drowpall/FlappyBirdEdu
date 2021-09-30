@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Background
   - PlayerDeath
   - ScorePoint
+  - Background
   layers:
   - Default
   - TransparentFX
