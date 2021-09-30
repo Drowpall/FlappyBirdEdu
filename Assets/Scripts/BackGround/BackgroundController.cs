@@ -5,31 +5,38 @@ using UnityEngine;
 
 public class BackgroundController : MonoBehaviour
 {
-    [NonSerialized] public GameObject backgroundPiece;
+    [NonSerialized] public GameObject backgroundImage;
 
-    [SerializeField] public GameObject backgroundPiece1;
-    [SerializeField] public GameObject backgroundPiece2;
+    [SerializeField] public GameObject backgroundImageLeft;
+    [SerializeField] public GameObject backgroundImageRight;
+    private object one;
 
-    public event Action BackgroundPieceTouched;
+    public event Action BackgroundImageTouched;
     private void Start()
     {
-        BackgroundPieceTouched += OnBackgroundPieceTouched;
+        BackgroundImageTouched += OnBackgroundImageTouched;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject != backgroundPiece1 && collision.gameObject != backgroundPiece2)
+        if (collision.gameObject != backgroundImageLeft && collision.gameObject != backgroundImageRight)
         {
             Debug.LogError("This was supposed to be background\n");
             return;
         }
-        backgroundPiece = collision.gameObject;
-        BackgroundPieceTouched?.Invoke();
+        backgroundImage = collision.gameObject;
+        BackgroundImageTouched?.Invoke();
     }
 
-    void OnBackgroundPieceTouched()
+    void OnBackgroundImageTouched()
     {
         // [1250 (pixels) / 100 (ptx/unit) * 3.65 (scale value) * 2] - 2 (ptx offset);
-        backgroundPiece.transform.position += new Vector3(89.25f, 0f, 0f); 
+        backgroundImage.transform.position += new Vector3(89.25f, 0f, 0f); 
+    }
+
+    public void StopBackgroundMovement()
+    {
+        backgroundImageLeft.GetComponent<Mover>().enabled = false;
+        backgroundImageRight.GetComponent<Mover>().enabled = false;
     }
 }

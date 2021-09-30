@@ -7,7 +7,10 @@ using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour {
     [SerializeField] Player player;
     [SerializeField] Spawner spawner;
+
     [SerializeField] UIController uiController;
+    [SerializeField] BackgroundController backgroundController;
+
     void Start() 
     {
         player.Died += OnPlayerDied;
@@ -20,6 +23,7 @@ public class LevelController : MonoBehaviour {
             obstacle.enabled = false;
         }
         uiController.PlayDeathSceneUI();
+        backgroundController.StopBackgroundMovement();
     }
 
     public void Restart()
