@@ -1,5 +1,4 @@
 using System;
-using PlayerLogic.PlayerMovement;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour {
@@ -7,15 +6,17 @@ public class Obstacle : MonoBehaviour {
 
     [SerializeField] GameObject topObstacle;
     [SerializeField] GameObject bottomObstacle;
+    [SerializeField] GameObject scoreTrigger;
 
     void Update()
     {
         transform.position += new Vector3(-moveSpeed * Time.deltaTime, 0.0f, 0.0f);
     }
-    
-    public void SetupObstaclePositions(Vector2 distanceBetweenObstacles, float centerHeight)
+
+    public void SetupObstaclePositions(Vector2 distanceBetweenObstacles, float centerHeight, float horizontalOffset)
     {
-        topObstacle.transform.position += new Vector3(distanceBetweenObstacles.x / 2, centerHeight + distanceBetweenObstacles.y / 2, 0f);
-        bottomObstacle.transform.position += new Vector3(-distanceBetweenObstacles.x / 2, centerHeight - distanceBetweenObstacles.y / 2, 0f);
-    }    
+        topObstacle.transform.position += new Vector3(distanceBetweenObstacles.x / 2 + horizontalOffset, centerHeight + distanceBetweenObstacles.y / 2, 0f);
+        bottomObstacle.transform.position += new Vector3(-distanceBetweenObstacles.x / 2 + horizontalOffset, centerHeight - distanceBetweenObstacles.y / 2, 0f);
+        scoreTrigger.transform.position += new Vector3(horizontalOffset, 0f, 0f);
+    }
 }
